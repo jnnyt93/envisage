@@ -6,7 +6,7 @@ var stories_count = 0;
  * Handler for the main home/login page.
  */
 
-var getMain = function(req, res) {
+ var getMain = function(req, res) {
 	// If the user has previously logged in, attempts to go to
 	res.render('main.ejs');
 };
@@ -19,9 +19,11 @@ var getStories = function(req, res) {
 		collection.findOne({index: rand}, function(err, doc){
 			if (err) throw err;
 			else arr.push(doc);
+		})
+		res.send(arr);
 	}
-	res.send(arr);
 }
+
 
 var getRelated = function(req, res) {
 	var collection = db.get('stories');
@@ -31,8 +33,9 @@ var getRelated = function(req, res) {
 		collection.findOne({index: rand, tag: req.body.tag}, function(err, doc){
 			if (err) throw err;
 			else arr.push(doc);
-	})
-	res.send(arr);
+		})
+		res.send(arr);
+	}
 }
 
 var postStory = function(req, res) {
@@ -52,15 +55,15 @@ var postStory = function(req, res) {
 	collection.insert(story, function(err, doc){
 		if (err) throw err;
 		else res.send(200);
-	});
+	})
 }
 
 
 var routes = { 
-  get_main: getMain,
-  post_story: postStory,
-  get_stories: getStories,
-  get_related: getRelated  
+	get_main: getMain,
+	post_story: postStory,
+	get_stories: getStories,
+	get_related: getRelated  
 };
 
 module.exports = routes;

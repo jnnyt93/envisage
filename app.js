@@ -13,7 +13,8 @@ app.use(express.bodyParser());
 app.use(express.logger("default"));
 app.use(express.cookieParser());
 app.use('/css', express.static(path.join(__dirname, '/views/css')));
-app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/js', express.static(path.join(__dirname, '/views/js')));
+app.use('/img', express.static(path.join(__dirname, '/views/img')));
 // Using random 20 digit prime as secret key
 app.use(express.session({secret:'48112959837082048697'}));
 
@@ -24,6 +25,7 @@ app.use(express.session({secret:'48112959837082048697'}));
    POST is often used when submitting web forms ('method="post"'). */
 
 app.get('/', routes.get_main);
+app.get('/get')
 
 
 /* Run the server */
