@@ -11,7 +11,7 @@ body {
       padding-left: 10%;
       padding-right: 10%;
       background: WHITE;
-      font: 10px/13px 'Lucida Sans',sans-serif;
+      font: 17px/22px 'Lucida Sans',sans-serif;
     }
     .wrap {
       overflow: hidden;
@@ -20,8 +20,8 @@ body {
     .box {
       float: left;
       position: relative;
-      width: 20%;
-      padding-bottom: 20%;
+      width: 25%;
+      padding-bottom: 25%;
     }
     .boxInner {
       position: absolute;
