@@ -1,13 +1,14 @@
 
 .header {
     text-align : center;
+    text-decoration: underline;
     clear: both;
 }
  
 body {
       margin: 0;
       padding: 0;
-      background: #EEE;
+      background: WHITE;
       font: 10px/13px 'Lucida Sans',sans-serif;
     }
     .wrap {
@@ -42,10 +43,10 @@ body {
       color: #FFF;
       padding: 10px;
       text-align: center;
-      -webkit-transition: all 0.3s ease-out;
-      -moz-transition: all 0.3s ease-out;
-      -o-transition: all 0.3s ease-out;
-      transition: all 0.3s ease-out;
+      -webkit-transition: all 0.4s ease-out;
+      -moz-transition: all 0.4s ease-out;
+      -o-transition: all 0.4s ease-out;
+      transition: all 0.4s ease-out;
     }
     body.no-touch .boxInner:hover .titleBox, body.touch .boxInner.touchFocus .titleBox {
       margin-top: 0;
