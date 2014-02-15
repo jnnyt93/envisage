@@ -8,6 +8,8 @@
 body {
       margin: 0;
       padding: 0;
+      padding-left: 10%;
+      padding-right: 10%;
       background: WHITE;
       font: 10px/13px 'Lucida Sans',sans-serif;
     }
