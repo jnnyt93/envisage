@@ -4,14 +4,18 @@
     text-decoration: underline;
     clear: both;
 }
+
+.submission{
+     text-align: center;
+}
  
 body {
       margin: 0;
       padding: 0;
-      padding-left: 10%;
-      padding-right: 10%;
+      padding-left: 15%;
+      padding-right: 15%;
       background: WHITE;
-      font: 17px/22px 'Lucida Sans',sans-serif;
+      font: 14px/20px 'Lucida Sans',sans-serif;
     }
     .wrap {
       overflow: hidden;
@@ -35,8 +39,7 @@ body {
       width: 100%;
     }
     .boxInner .titleBox {
-      position: absolute;
-      top: 0;
+      position: relative;
       left: 0;
       right: 0;
       margin-top: -50px;
@@ -46,9 +49,9 @@ body {
       padding: 10px;
       text-align: center;
       -webkit-transition: all 0.4s ease-out;
-      -moz-transition: all 0.4s ease-out;
+     /* -moz-transition: all 0.4s ease-out;
       -o-transition: all 0.4s ease-out;
-      transition: all 0.4s ease-out;
+      transition: all 0.4s ease-out;*/
     }
     body.no-touch .boxInner:hover .titleBox, body.touch .boxInner.touchFocus .titleBox {
       margin-top: 0;
@@ -56,7 +59,7 @@ body {
     @media only screen and (max-width : 480px) {
       /* Smartphone view: 1 tile */
       .box {
-        width: 100%;
+        height: 100%;
         padding-bottom: 100%;
       }
     }

@@ -10,7 +10,7 @@
 
         <!-- CSS -->
         <link rel = "stylesheet" href = "css/tile.css"/>
-        <link href= 'http://fonts.googleapis.com/css?family = Sorts+Mill+Goudy|Quando' rel = 'stylesheet' type'text/css'>        
+        <link href= 'http://fonts.googleapis.com/css?family = Ledger' rel = 'stylesheet' type'text/css'>        
     
         <link rel ="stylesheet" href = "css/foundation.css">      
 
@@ -24,7 +24,8 @@
         <script src ="js/custom.modernizr.js"></script>
         <script src ="js/foundation.min.js"></script>
         <script src ="js/foundation.js"></script>
-        <script src ="js/foundation.reveal.js"></script> 
+        <script src ="js/foundation.reveal.js"></script>
+        <script src ="js/jquery.autosize.js></script> 
   <!-- Enable media queries for old IE -->
   <!--[if lt IE 9]>
 	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
@@ -37,13 +38,56 @@
 <body class="no-touch">
 
 <a href="#" data-reveal-id="submit-button" data-reveal>Click me for a modal</a>
-
 <div id="submit-button" class="reveal-modal" data-reveal>
-  <h2>Awesome. I have it.</h2>
-  <p class="lead">Your couch.  It is mine.</p>
-  <p>Im a cool paragraph that lives inside of an even cooler modal. Wins</p>
-  <a class="close-reveal-modal">&#215;</a>
+  <h2>Welcome to Envisage</h2>
+
+  <form>
+   <div class = "row">
+    <div class= "large-12 columns">
+     <label> Title
+       <input type ="text" placeholder = "Enter the title"/>
+     </label>
+    </div>
+   </div>
+   <div class = "row">
+     <div class = "large-12 columns">
+       <label> Story
+         <textarea placeholder = "Share your story"></textarea>
+       </label>
+     </div>
+   </div>
+ 
+<div>
+   <div style: "display:flex" class = "row">
+     <div style: "float:left" class = large-4.columns>
+       <label> Input Label
+       <input type = "text" placeholder = "Enter one label"/>
+       </label>
+     </div>
+   </div>
+     
+     <div style: "float:right" class = large-4.columns>
+       <label> Input Name (Optional)
+       <input type = "text" placeholder = "Name"/>
+       </label>
+     </div>
 </div>
+
+   <div class= "small-2 columns">
+   </div>
+
+  <div style:"text-align:center" class = submission>
+      <input type = "submit" value = "SUBMIT" />
+  </div>
+  </div>
+</form>
+  <a class="close-reveal-modal">&#215;</a>
+ 
+          <script>
+                $(document).ready(function(){
+                   $('textarea').autosize();
+               }); 
+           </script>
 
 <body class="no-touch">
 
@@ -101,31 +145,6 @@
         <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/6.jpg" />
         <div class="titleBox">Iris along the path</div>
       </div>
-    </div>
-    <div class="box">
-      <div class="boxInner">
-        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/8.jpg" />
-        <div class="titleBox">The garden blueprint</div>
-      </div>
-    </div>
-    <div class="box">
-      <div class="boxInner">
-        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/9.jpg" />
-        <div class="titleBox">The patio</div>
-      </div>
-    </div>
-    <div class="box">
-      <div class="boxInner">
-        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/11.jpg" />
-        <div class="titleBox">Bumble bee collecting nectar</div>
-      </div>
-    </div>
-    <div class="box">
-      <div class="boxInner">
-        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/12.jpg" />
-        <div class="titleBox">Winding garden path</div>
-      </div>
-
     </div>
     
   </div>
