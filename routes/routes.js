@@ -23,6 +23,18 @@ var getStories = function(req, res) {
 	res.send(arr);
 }
 
+var getRelated = function(req, res) {
+	var collection = db.get('stories');
+	var arr = [];
+	while (arr.length < 8){
+		var rand = Math.floor(Math.random() * stories_count);
+		collection.findOne({index: rand, tag: req.body.tag}, function(err, doc){
+			if (err) throw err;
+			else arr.push(doc);
+	})
+	res.send(arr);
+}
+
 var postStory = function(req, res) {
 	var story = {};
 	story._id = uuid.v1();
@@ -31,6 +43,7 @@ var postStory = function(req, res) {
 	story.content = req.body.content;
 	story.reads = 0;
 	story.likes = 0;
+	story.tag = req.body.tag;
 	story.index = stories_count;
 
 	stories_count++;
@@ -44,7 +57,10 @@ var postStory = function(req, res) {
 
 
 var routes = { 
-  get_main: getMain,  
+  get_main: getMain,
+  post_story: postStory,
+  get_stories: getStories,
+  get_related: getRelated  
 };
 
 module.exports = routes;
