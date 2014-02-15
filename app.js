@@ -13,7 +13,7 @@ app.use(express.bodyParser());
 app.use(express.logger("default"));
 app.use(express.cookieParser());
 app.use('/css', express.static(path.join(__dirname, '/views/css')));
-app.use('/js', express.static(path.join(__dirname, 'js')));
+app.use('/js', express.static(path.join(__dirname, '/views/js')));
 // Using random 20 digit prime as secret key
 app.use(express.session({secret:'48112959837082048697'}));
 

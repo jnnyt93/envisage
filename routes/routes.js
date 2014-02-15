@@ -19,10 +19,10 @@ var getStories = function(req, res) {
 		collection.findOne({index: rand}, function(err, doc){
 			if (err) throw err;
 			else arr.push(doc);
-	}
+	})
 	res.send(arr);
 }
-
+}
 var postStory = function(req, res) {
 	var story = {};
 	story._id = uuid.v1();
@@ -39,7 +39,7 @@ var postStory = function(req, res) {
 	collection.insert(story, function(err, doc){
 		if (err) throw err;
 		else res.send(200);
-	});
+	})
 }
 
 
