@@ -21,7 +21,7 @@
 
 	for (var i = 1; i <= 8; i++) {
 		var triggerBttn = document.getElementById( 'trigger-overlay' + i );
-		triggerBttn.addEventListener( 'click', toggleOverlay );
+		triggerBttn.addEventListener( 'click', toggleOverlay(i) );
 	}
 	
 
@@ -30,7 +30,8 @@
 		paths = [].slice.call( overlay.querySelectorAll( 'svg > path' ) ),
 		pathsTotal = paths.length;
 
-	function toggleOverlay() {
+	function toggleOverlay(i) {
+		updateStoryModal(i);
 		var cnt = 0;
 
 		shuffle( paths );

@@ -1,7 +1,9 @@
 var monk = require('monk');
 var uuid = require('node-uuid');
 var db = monk('localhost:27017/test');
-var stories_count = 0;
+var jQuery = require('jquery');
+var stories_count = 8;
+
 /*
  * Handler for the main home/login page.
  */
@@ -13,29 +15,45 @@ var stories_count = 0;
 
 var getStories = function(req, res) {
 	var collection = db.get('stories');
-	var arr = [];
-	for (var i = 0; i < 8; i++){
-		var rand = Math.floor(Math.random() * stories_count);
-		collection.findOne({index: rand}, function(err, doc){
+	// console.log(collection.find());
+	// console.log(stories_count);
+	var arr = [];		
+		collection.find({}, function(err, docs){
+			// res.send(doc);
 			if (err) throw err;
-			else arr.push(doc);
-		})
-		res.send(arr);
-	}
+			else {				
+				while (arr.length < Math.min(stories_count,8)) {
+					var rand = Math.floor(Math.random() * stories_count);
+					arr.push(docs[rand]);
+				}
+				var result = {stories: arr};
+				res.send(result);								
+			}
+		})		
+	
 }
 
 
 var getRelated = function(req, res) {
 	var collection = db.get('stories');
 	var arr = [];
-	while (arr.length < 8){
+	while (arr.length <= Math.min(8, stories_count)){
 		var rand = Math.floor(Math.random() * stories_count);
-		collection.findOne({index: rand, tag: req.body.tag}, function(err, doc){
+		collection.find({tag: req.body.tag}, function(err, doc){
 			if (err) throw err;
-			else arr.push(doc);
-		})
-		res.send(arr);
+			else {
+				while (arr.length <= 8) {
+					var rand = Math.floor(Math.random() * stories_count);
+					arr.push(docs[rand]);
+				}
+				var result = {stories: arr};
+				res.send(result);		
+			}
+		})		
 	}
+	var result = {};
+	result.stories = arr;
+	res.send(result);
 }
 
 var postStory = function(req, res) {
@@ -44,7 +62,7 @@ var postStory = function(req, res) {
 	story.title = req.body.title;
 	story.poster = req.body.fullname;
 	story.content = req.body.content;
-	story.reads = 0;
+	story.views = 0;
 	story.likes = 0;
 	story.tag = req.body.tag;
 	story.index = stories_count;

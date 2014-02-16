@@ -8,66 +8,64 @@
 
   <title>Envisage</title>
 
-        <!-- CSS -->
-        <link rel = "stylesheet" href = "css/tile.css"/>
-        <link href= 'http://fonts.googleapis.com/css?family = Ledger' rel = 'stylesheet' type'text/css'>        
-    
-        <link rel ="stylesheet" href = "css/foundation.css">      
+  <!-- CSS -->
+  <link rel = "stylesheet" href = "css/tile.css"/>
+  <link href= 'http://fonts.googleapis.com/css?family = Ledger' rel = 'stylesheet' type'text/css'>        
 
-        <!-- jQuery -->
-        <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
-        <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
-        <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>        
-        
-        <!-- your javascript -->
-        <script src ="js/jquery.js"></script>
-        <script src ="js/custom.modernizr.js"></script>
-        <script src ="js/foundation.min.js"></script>
-        <script src ="js/foundation.js"></script>
-        <script src ="js/foundation.reveal.js"></script>
-        <script src ="js/jquery.autosize.js></script> 
-        
+  <link rel ="stylesheet" href = "css/foundation.css">      
+
+  <!-- jQuery -->
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="http://code.jquery.com/ui/1.10.3/themes/smoothness/jquery-ui.css" />
+  <script src="http://code.jquery.com/ui/1.10.3/jquery-ui.js"></script>        
+
+  <!-- your javascript -->
+  <script src ="js/jquery.js"></script>
+  <script src ="js/custom.modernizr.js"></script>
+  <script src ="js/foundation.min.js"></script>
+  <script src ="js/foundation.js"></script>
+  <script src ="js/foundation.reveal.js"></script>
+  <script src ="js/jquery.autosize.js"></script>
+  <script src="js/utils.js"></script> 
+
   <!-- Enable media queries for old IE -->
   <!--[if lt IE 9]>
 	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
   <![endif]-->
-	<script>
-		$(document).foundation();
-    // for (var i = 1; i <= 8; i++) {
-    // $('trigger-overlay'+i).click(function(e){
-    //   toggleOverLay();
-    // })
-  // }
-	</script>
+  <script>
+  $(document).ready(function(){
+    $('textarea').autosize();
+    drawBox();
+  }); 
+  $(document).foundation();
 
-    <!-- Box Modal -->
-      <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" type="text/css" href="css/style10.css" />
-    <script src="js/snap.svg-min.js"></script>
-      <script src="js/modernizr.custom.js"></script>
+  </script>
+
+  <!-- Box Modal -->
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge"> 
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" type="text/css" href="css/style10.css" />
+  <script src="js/snap.svg-min.js"></script>
+  <script src="js/modernizr.custom.js"></script>
 
 </head>
 
 <body class="no-touch">
 
+  <a class = "button" href="#" data-reveal-id="submit-button" data-reveal>Share your story</a>
 
-<a class = "button" href="#" data-reveal-id="submit-button" data-reveal>Share your story</a>
- 
-<!--<button type="button"><a href="#" data-reveal-id="submit-button" data-reveal>Click me for a modal</a></button>
--->
-<div id="submit-button" class="reveal-modal" data-reveal>
-  <h2>Welcome to Envisage</h2>
+  <div id="submit-button" class="reveal-modal" data-reveal>
+    <h2>Welcome to Envisage</h2>
 
-  <form>
-   <div class = "row">
-    <div class= "large-12 columns">
-     <label> Title
-       <input type ="text" placeholder = "Enter the title"/>
-     </label>
+    <form>
+     <div class = "row">
+      <div class= "large-12 columns">
+       <label> Title
+         <input type ="text" placeholder = "Enter the title"/>
+       </label>
+      </div>
     </div>
-   </div>
    <div class = "row">
      <div class = "large-12 columns">
        <label> Story
@@ -75,47 +73,41 @@
        </label>
      </div>
    </div>
- 
-<div>
-   <div style: "display:flex" class = "row">
-     <div style: "float:left" class = large-4.columns>
-       <label> Input Label
-       <input type = "text" placeholder = "Enter one label"/>
-       </label>
+
+   <div>
+     <div style: "display:flex" class = "row">
+       <div style: "float:left" class = large-4.columns>
+         <label> Input Label
+           <input type = "text" placeholder = "Enter one label"/>
+         </label>
+       </div>
      </div>
-   </div>
      
      <div style: "float:right" class = large-4.columns>
        <label> Input Name (Optional)
-       <input type = "text" placeholder = "Name"/>
+         <input type = "text" placeholder = "Name"/>
        </label>
      </div>
-</div>
+   </div>
 
    <div class= "small-2 columns">
    </div>
 
-  <div style:"text-align:center" class = submission>
-      <input type = "submit" value = "SUBMIT" />
+   <div style:"text-align:center" class = submission>
+    <input type = "submit" class="button" value = "SUBMIT" />
   </div>
-  </div>
+</div>
 </form>
-  <a class="close-reveal-modal">&#215;</a>
- 
-          <script>
-                $(document).ready(function(){
-                   $('textarea').autosize();
-               }); 
-           </script>
+<a class="close-reveal-modal"></a>
 
 <body class="no-touch">
 
   <div class = "header">
-  <img src="img/Envisage_logo.png" alt="logo">
+    <img src="img/Envisage_logo.png" alt="logo">
   </div>
 
   <div class="wrap" >
-    
+
     <!-- Define all of the tiles: -->
     <div class="box" >
       <div class="boxInner">
@@ -123,72 +115,54 @@
         <div class="titleBox">Butterfly</div>
       </div>
     </div>
+
     <div class="box" >
       <div class="boxInner">
         <img id="trigger-overlay2" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/1.jpg" />
         <div class="titleBox">An old greenhouse</div>
       </div>
     </div>
+
     <div class="box" >
       <div class="boxInner">
         <img id="trigger-overlay3" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/2.jpg" />
         <div class="titleBox">Purple wildflowers</div>
       </div>
     </div>
+
     <div class="box" >
       <div class="boxInner">
         <img id="trigger-overlay4" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/3.jpg" />
         <div class="titleBox">A birdfeeder</div>
       </div>
     </div>
+
     <div class="box" >
       <div class="boxInner">
         <img id="trigger-overlay5" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/10.jpg" />
         <div class="titleBox">Crocus close-up</div>
       </div>
     </div>
+
     <div class="box" >
       <div class="boxInner">
         <img id="trigger-overlay6" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/4.jpg" />
         <div class="titleBox">The garden shop</div>
       </div>
     </div>
+
     <div class="box" >
       <div class="boxInner">
         <img id="trigger-overlay7" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/5.jpg" />
         <div class="titleBox">Spring daffodils</div>
       </div>
     </div>
+
     <div class="box" >
       <div class="boxInner">
         <img id="trigger-overlay8" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/6.jpg" />
         <div class="titleBox">Iris along the path</div>
       </div>
-    </div>
-    <div class="box" id="trigger-overlay">
-      <div class="boxInner">
-        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/8.jpg" />
-        <div class="titleBox">The garden blueprint</div>
-      </div>
-    </div>
-    <div class="box" id="trigger-overlay">
-      <div class="boxInner">
-        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/9.jpg" />
-        <div class="titleBox">The patio</div>
-      </div>
-    </div>
-    <div class="box" id="trigger-overlay">
-      <div class="boxInner">
-        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/11.jpg" />
-        <div class="titleBox">Bumble bee collecting nectar</div>
-      </div>
-    </div>
-    <div class="box" id="trigger-overlay">
-      <div class="boxInner">
-        <img src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/12.jpg" />
-        <div class="titleBox">Winding garden path</div>
-      </div>
-
     </div>
     
   </div>
@@ -197,7 +171,7 @@
   <!-- Add some JavaScript to enable toggling the descriptions when an image is tapped on a touchscreen device -->
 
   <script type="text/javascript">
-    $(function(){
+  $(function(){
       // See if this is a touch device
       if ('ontouchstart' in window)
       {
@@ -211,105 +185,52 @@
       }
     });
   </script>
-     <div class ="stories">
-       <!-- link that opens popup -->
-   </div> 
 
-   <!-- open/close -->
-    <div class="overlay overlay-boxes">
-      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="101%" viewBox="0 0 1440 806" preserveAspectRatio="none">
-        <path d="m0.005959,200.364029l207.551124,0l0,204.342453l-207.551124,0l0,-204.342453z"/>
-        <path d="m0.005959,400.45401l207.551124,0l0,204.342499l-207.551124,0l0,-204.342499z"/>
-        <path d="m0.005959,600.544067l207.551124,0l0,204.342468l-207.551124,0l0,-204.342468z"/>
-        <path d="m205.752151,-0.36l207.551163,0l0,204.342437l-207.551163,0l0,-204.342437z"/>
-        <path d="m204.744629,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z"/>
-        <path d="m204.744629,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z"/>
-        <path d="m204.744629,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z"/>
-        <path d="m410.416046,-0.36l207.551117,0l0,204.342437l-207.551117,0l0,-204.342437z"/>
-        <path d="m410.416046,200.364029l207.551117,0l0,204.342453l-207.551117,0l0,-204.342453z"/>
-        <path d="m410.416046,400.45401l207.551117,0l0,204.342499l-207.551117,0l0,-204.342499z"/>
-        <path d="m410.416046,600.544067l207.551117,0l0,204.342468l-207.551117,0l0,-204.342468z"/>
-        <path d="m616.087402,-0.36l207.551086,0l0,204.342437l-207.551086,0l0,-204.342437z"/>
-        <path d="m616.087402,200.364029l207.551086,0l0,204.342453l-207.551086,0l0,-204.342453z"/>
-        <path d="m616.087402,400.45401l207.551086,0l0,204.342499l-207.551086,0l0,-204.342499z"/>
-        <path d="m616.087402,600.544067l207.551086,0l0,204.342468l-207.551086,0l0,-204.342468z"/>
-        <path d="m821.748718,-0.36l207.550964,0l0,204.342437l-207.550964,0l0,-204.342437z"/>
-        <path d="m821.748718,200.364029l207.550964,0l0,204.342453l-207.550964,0l0,-204.342453z"/>
-        <path d="m821.748718,400.45401l207.550964,0l0,204.342499l-207.550964,0l0,-204.342499z"/>
-        <path d="m821.748718,600.544067l207.550964,0l0,204.342468l-207.550964,0l0,-204.342468z"/>
-        <path d="m1027.203979,-0.36l207.550903,0l0,204.342437l-207.550903,0l0,-204.342437z"/>
-        <path d="m1027.203979,200.364029l207.550903,0l0,204.342453l-207.550903,0l0,-204.342453z"/>
-        <path d="m1027.203979,400.45401l207.550903,0l0,204.342499l-207.550903,0l0,-204.342499z"/>
-        <path d="m1027.203979,600.544067l207.550903,0l0,204.342468l-207.550903,0l0,-204.342468z"/>
-        <path d="m1232.659302,-0.36l207.551147,0l0,204.342437l-207.551147,0l0,-204.342437z"/>
-        <path d="m1232.659302,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z"/>
-        <path d="m1232.659302,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z"/>
-        <path d="m1232.659302,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z"/>
-        <path d="m-0.791443,-0.360001l207.551163,0l0,204.342438l-207.551163,0l0,-204.342438z"/>
-      </svg>
-      <button type="button" class="overlay-close">Close</button>
-      <nav>
-        <h1>This is the Title of My Story</h1>
-        <p>content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-      </p> 
-      <p>
-        other content content text is fun content blah blah lah mah sahpl other content content text is fun content blah blah lah mah sahpl
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        blah blah lah mah sahpl ontent content text is fun conte other content content text is fun content blah blah lah mah sahpl other content content text is fun content blah blah lah mah sahpl
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        blah blah lah mah sahpl ontent content text is fun conte
-        other content content text is fun content blah blah lah mah sahpl other content content text is fun content blah blah lah mah sahpl
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        blah blah lah mah sahpl ontent content text is fun conte
-        other content content text is fun content blah blah lah mah sahpl other content content text is fun content blah blah lah mah sahpl
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        blah blah lah mah sahpl ontent content text is fun conte</p>
-        <p> other content content text is fun content blah blah lah mah sahpl other content content text is fun content blah blah lah mah sahpl
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        blah blah lah mah sahpl ontent content text is fun conte other content content text is fun content blah blah lah mah sahpl other content content text is fun content blah blah lah mah sahpl
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        blah blah lah mah sahpl ontent content text is fun conteother content content text is fun content blah blah lah mah sahpl other content content text is fun content blah blah lah mah sahpl
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        blah blah lah mah sahpl ontent content text is fun conte </p>
-        <p> other content content text is fun content blah blah lah mah sahpl other content content text is fun content blah blah lah mah sahpl
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        blah blah lah mah sahpl ontent content text is fun conte other content content text is fun content blah blah lah mah sahpl other content content text is fun content blah blah lah mah sahpl
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        blah blah lah mah sahpl ontent content text is fun conteother content content text is fun content blah blah lah mah sahpl other content content text is fun content blah blah lah mah sahpl
-        content content content content content content content content content content content content content content 
-        content content content content content content content content content content content content content content
-        blah blah lah mah sahpl ontent content text is fun conte </p>
+ <!-- open/close -->
+ <div class="overlay overlay-boxes">
+  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="101%" viewBox="0 0 1440 806" preserveAspectRatio="none">
+    <path d="m0.005959,200.364029l207.551124,0l0,204.342453l-207.551124,0l0,-204.342453z"/>
+    <path d="m0.005959,400.45401l207.551124,0l0,204.342499l-207.551124,0l0,-204.342499z"/>
+    <path d="m0.005959,600.544067l207.551124,0l0,204.342468l-207.551124,0l0,-204.342468z"/>
+    <path d="m205.752151,-0.36l207.551163,0l0,204.342437l-207.551163,0l0,-204.342437z"/>
+    <path d="m204.744629,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z"/>
+    <path d="m204.744629,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z"/>
+    <path d="m204.744629,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z"/>
+    <path d="m410.416046,-0.36l207.551117,0l0,204.342437l-207.551117,0l0,-204.342437z"/>
+    <path d="m410.416046,200.364029l207.551117,0l0,204.342453l-207.551117,0l0,-204.342453z"/>
+    <path d="m410.416046,400.45401l207.551117,0l0,204.342499l-207.551117,0l0,-204.342499z"/>
+    <path d="m410.416046,600.544067l207.551117,0l0,204.342468l-207.551117,0l0,-204.342468z"/>
+    <path d="m616.087402,-0.36l207.551086,0l0,204.342437l-207.551086,0l0,-204.342437z"/>
+    <path d="m616.087402,200.364029l207.551086,0l0,204.342453l-207.551086,0l0,-204.342453z"/>
+    <path d="m616.087402,400.45401l207.551086,0l0,204.342499l-207.551086,0l0,-204.342499z"/>
+    <path d="m616.087402,600.544067l207.551086,0l0,204.342468l-207.551086,0l0,-204.342468z"/>
+    <path d="m821.748718,-0.36l207.550964,0l0,204.342437l-207.550964,0l0,-204.342437z"/>
+    <path d="m821.748718,200.364029l207.550964,0l0,204.342453l-207.550964,0l0,-204.342453z"/>
+    <path d="m821.748718,400.45401l207.550964,0l0,204.342499l-207.550964,0l0,-204.342499z"/>
+    <path d="m821.748718,600.544067l207.550964,0l0,204.342468l-207.550964,0l0,-204.342468z"/>
+    <path d="m1027.203979,-0.36l207.550903,0l0,204.342437l-207.550903,0l0,-204.342437z"/>
+    <path d="m1027.203979,200.364029l207.550903,0l0,204.342453l-207.550903,0l0,-204.342453z"/>
+    <path d="m1027.203979,400.45401l207.550903,0l0,204.342499l-207.550903,0l0,-204.342499z"/>
+    <path d="m1027.203979,600.544067l207.550903,0l0,204.342468l-207.550903,0l0,-204.342468z"/>
+    <path d="m1232.659302,-0.36l207.551147,0l0,204.342437l-207.551147,0l0,-204.342437z"/>
+    <path d="m1232.659302,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z"/>
+    <path d="m1232.659302,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z"/>
+    <path d="m1232.659302,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z"/>
+    <path d="m-0.791443,-0.360001l207.551163,0l0,204.342438l-207.551163,0l0,-204.342438z"/>
+  </svg>
+  <button type="button" class="overlay-close">Close</button>
+  <div id='story-modal'>
+  <nav>
+    <h1 id="modal-title">This is the Title of My Story</h1>
+    <h3 id="modal-poster" style="font-style:italics">Anonymous </h3>
+    <p> </p>
 
-        <p><button type="button">Similar Stories</button></p>
-      </nav>
-    </div>
-    <script src="js/classie.js"></script>
-    <script src="js/demo10.js"></script>
 
-  
-</body> 
-
+          <button type="button">Similar Stories</button><br>
+        </nav>
+      </div>
+  </div>      
+      <script src="js/classie.js"></script>
+      <script src="js/demo10.js"></script>
+  </body> 
 </html>

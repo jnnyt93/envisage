@@ -25,7 +25,7 @@ app.use(express.session({secret:'48112959837082048697'}));
    POST is often used when submitting web forms ('method="post"'). */
 
 app.get('/', routes.get_main);
-app.get('/get')
+app.get('/getstories',routes.get_stories);
 
 
 /* Run the server */
