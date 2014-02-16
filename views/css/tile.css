@@ -1,25 +1,42 @@
-
 .header {
+    padding-top: 30px;
     text-align : center;
-    text-decoration: underline;
     clear: both;
-}
+  }
 
-.submission{
+#two-columns {
+     width = 50%;
+     position: relative;
+  }
+
+.submission {
      text-align: center;
-}
+  }
+
+#submission_button {
+     margin-top: 4%;
+     margin-right: 5%;
+     float: right;
+   }
+
  
 body {
-      margin: 0;
-      padding: 0;
-      padding-left: 15%;
-      padding-right: 15%;
-      background: WHITE;
-      font: 14px/20px 'Lucida Sans',sans-serif;
+      height: 100%;
+      margin: 5%;
+      padding: 4px 4px 4px 4px;
+      background-color: #261C12;
+      font-family: "Ledger", serif;
+      font-size: 15px/20px;
     }
+
+    #description {
+      width: 29%;
+    }
+    
+
     .wrap {
       overflow: hidden;
-      margin: 10px;
+      margin: 3%;
     }
     .box {
       float: left;
@@ -67,20 +84,20 @@ body {
       /* Tablet view: 2 tiles */
       .box {
         width: 50%;
-        padding-bottom: 50%;
+        padding-bottom: 60%;
       }
     }
     @media only screen and (max-width : 1050px) and (min-width : 651px) {
       /* Small desktop / ipad view: 3 tiles */
       .box {
         width: 33.3%;
-        padding-bottom: 33.3%;
+        padding-bottom: 43.3%;
       }
     }
     @media only screen and (max-width : 1290px) and (min-width : 1051px) {
       /* Medium desktop: 4 tiles */
       .box {
         width: 25%;
-        padding-bottom: 25%;
+        padding-bottom: 40%;
       }
     }
