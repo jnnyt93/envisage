@@ -26,6 +26,7 @@ app.use(express.session({secret:'48112959837082048697'}));
 
 app.get('/', routes.get_main);
 app.get('/getstories',routes.get_stories);
+app.get('/getbyid',routes.get_byid);
 
 
 /* Run the server */

@@ -5,7 +5,7 @@
 	height: 100%;
 	top: 0;
 	left: 0;
-	background: rgba(153,204,51,0.9);
+	background: rgba(204,121,14,0.3);
 }
 h1 {
 	text-align: center;
@@ -103,7 +103,7 @@ line-height:100%}
 }
 
 .overlay-boxes svg path {
-	fill: rgb(48,214,125);
+	fill: rgba(204,121,14,0.95);
 	display: none;
 }
 

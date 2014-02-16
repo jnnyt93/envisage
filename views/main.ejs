@@ -33,11 +33,11 @@
 	<script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
   <![endif]-->
   <script>
+  $(document).foundation();
   $(document).ready(function(){
     $('textarea').autosize();
-    drawBox();
+    drawBox();    
   }); 
-  $(document).foundation();
 
   </script>
 
@@ -109,61 +109,7 @@
   <div class="wrap" >
 
     <!-- Define all of the tiles: -->
-    <div class="box" >
-      <div class="boxInner">
-        <img id="trigger-overlay1" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/7.jpg" />
-        <div class="titleBox">Butterfly</div>
-      </div>
-    </div>
-
-    <div class="box" >
-      <div class="boxInner">
-        <img id="trigger-overlay2" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/1.jpg" />
-        <div class="titleBox">An old greenhouse</div>
-      </div>
-    </div>
-
-    <div class="box" >
-      <div class="boxInner">
-        <img id="trigger-overlay3" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/2.jpg" />
-        <div class="titleBox">Purple wildflowers</div>
-      </div>
-    </div>
-
-    <div class="box" >
-      <div class="boxInner">
-        <img id="trigger-overlay4" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/3.jpg" />
-        <div class="titleBox">A birdfeeder</div>
-      </div>
-    </div>
-
-    <div class="box" >
-      <div class="boxInner">
-        <img id="trigger-overlay5" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/10.jpg" />
-        <div class="titleBox">Crocus close-up</div>
-      </div>
-    </div>
-
-    <div class="box" >
-      <div class="boxInner">
-        <img id="trigger-overlay6" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/4.jpg" />
-        <div class="titleBox">The garden shop</div>
-      </div>
-    </div>
-
-    <div class="box" >
-      <div class="boxInner">
-        <img id="trigger-overlay7" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/5.jpg" />
-        <div class="titleBox">Spring daffodils</div>
-      </div>
-    </div>
-
-    <div class="box" >
-      <div class="boxInner">
-        <img id="trigger-overlay8" src="http://www.dwuser.com/education/content/creating-responsive-tiled-layout-with-pure-css/images/demo/6.jpg" />
-        <div class="titleBox">Iris along the path</div>
-      </div>
-    </div>
+    
     
   </div>
   <!-- /#wrap -->
@@ -219,16 +165,18 @@
     <path d="m-0.791443,-0.360001l207.551163,0l0,204.342438l-207.551163,0l0,-204.342438z"/>
   </svg>
   <button type="button" class="overlay-close">Close</button>
-  <div id='story-modal'>
+  
   <nav>
+    <div id='story-modal'>
     <h1 id="modal-title">This is the Title of My Story</h1>
     <h3 id="modal-poster" style="font-style:italics">Anonymous </h3>
-    <p> </p>
+    <p id='modal-content'> </p>
 
 
           <button type="button">Similar Stories</button><br>
-        </nav>
+        
       </div>
+  </nav>
   </div>      
       <script src="js/classie.js"></script>
       <script src="js/demo10.js"></script>
