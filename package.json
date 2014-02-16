@@ -10,5 +10,14 @@
       "ejs": "*",
       "monk":"*",
       "foundation":"*"
-   }
+   },
+   "repository": {
+      "type": "git",
+      "url": "https://github.com/vincentdo/envisage.git"
+   },
+   "author": [
+      "Vincent Do",
+      "Debbie Ly",
+      "Jenny Trang"
+   ],
 }

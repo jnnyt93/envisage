@@ -43,10 +43,11 @@ var updateStoryModal = function(id) {
 			var title = data.title;
 			var poster = data.poster;
 			var content = data.content;
+			var tag = data.tag;
 			$('#modal-title').empty();
 			$('#modal-title').append(title);
 			$('#modal-poster').empty();
-			if (poster != null && poster !== undefined) {
+			if (poster != null || poster !== undefined) {
 				$('#modal-poster').append(poster);
 			}
 			else {
@@ -54,12 +55,19 @@ var updateStoryModal = function(id) {
 			}
 			$('#modal-content').empty();
 			$('#modal-content').append(content);
+			$('#modal-tag').empty();
+			$('#modal-tag').empty();
 		}
 	})	
 }
 
 var postStory = function(){
   var url = '/poststory';
+  var data = $("#story-form").serialize();
+  if (data.title == "" || data.content == "") {
+  	return;
+  }
+  if (data.poster == "") data.poster = "Anonymous";
   $.post(url, $("#story-form").serialize(), function(data, status){
     if (status === 'succcess') {
       // Maybe do something here?
@@ -71,7 +79,8 @@ var postStory = function(){
 
 var getRelatedStories = function() {
 	// location.reload();
-	var url = '/getrelated';
+	var tag = $('#modal-tag').text();
+	var url = '/getrelated?tag=' + tag;
 	$.get(url, function(data, status){
 		console.log(data);
 		if (data.stories[0] != null) {

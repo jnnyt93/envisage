@@ -1,7 +1,7 @@
 var monk = require('monk');
 var uuid = require('node-uuid');
 var db = monk('localhost:27017/test');
-var stories_count = 20;
+var stories_count = 37;
 
 /*
  * Handler for the main home/login page.
@@ -18,7 +18,9 @@ var getStories = function(req, res) {
 	var arr = [];		
 	collection.find({}, function(err, docs){
 		if (err) throw err;
-		else {				
+		else {
+			stories_count = docs.length;
+		console.log("------Length: " +docs.length+" ---------");				
 			while (arr.length <= Math.min(stories_count,8)) {
 				var rand = Math.floor(Math.random() * stories_count);
 				var contains = false;
@@ -54,7 +56,7 @@ var getRelated = function(req, res) {
 	var arr = [];
 	
 	var rand = Math.floor(Math.random() * stories_count);
-	collection.find({tag: req.body.tag}, function(err, docs){
+	collection.find({tag: req.query.tag}, function(err, docs){
 		if (err) throw err;
 		else {
 			while (arr.length <= Math.min(8, docs.length) ){

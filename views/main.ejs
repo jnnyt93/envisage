@@ -46,7 +46,7 @@
     })
     $('textarea').autosize();
     drawBox();
-    setTimeout(refresh, 30000);    
+    setTimeout(refresh, 15000);    
   }); 
 
   </script>
@@ -96,7 +96,7 @@
         
         <div> 
            <label> Input Name (Optional)</label>
-           <input name="poster" type="text" placeholder = "Name">
+           <input name="poster" type="text" placeholder = "Name" value="Anonymous">
         </div>
       </div>
 
@@ -167,10 +167,11 @@
       <button type="button" class="overlay-close">Close</button>
   
       <nav>
-        <div id='story-modal'>
+        <div id='story-modal' data-id="tag">
           <h1 id="modal-title">This is the Title of My Story</h1>
           <h3 id="modal-poster" style="font-style:italics">Anonymous </h3>
           <p id="modal-content"> </p>
+          <h5 id="modal-tag"></h5>
           <button id="related-stories" type="button">Similar Stories</button><br>        
         </div>
       </nav>
