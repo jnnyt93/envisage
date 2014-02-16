@@ -1,8 +1,7 @@
 var monk = require('monk');
 var uuid = require('node-uuid');
 var db = monk('localhost:27017/test');
-var jQuery = require('jquery');
-var stories_count = 16;
+var stories_count = 20;
 
 /*
  * Handler for the main home/login page.
@@ -17,26 +16,30 @@ var getStories = function(req, res) {
 	var collection = db.get('stories');
 
 	var arr = [];		
-		collection.find({}, function(err, docs){
-			// res.send(doc);
-			if (err) throw err;
-			else {				
-				while (arr.length <= Math.min(stories_count,8)) {
-					var rand = Math.floor(Math.random() * stories_count);
-					console.log(docs[rand]._id.toString());
-					arr.push(docs[rand]);
+	collection.find({}, function(err, docs){
+		if (err) throw err;
+		else {				
+			while (arr.length <= Math.min(stories_count,8)) {
+				var rand = Math.floor(Math.random() * stories_count);
+				var contains = false;
+				for (var i = 0; i < arr.length; i++) {						
+					if (arr[i]._id === docs[rand]._id) {
+						contains = true;
+						break;
+					}							
 				}
-				var result = {stories: arr};
-				res.send(result);								
+				if (!contains)
+					arr.push(docs[rand]);					
 			}
-		})	
+			var result = {stories: arr};
+			res.send(result);								
+		}
+	})	
 }
 
 var getByID = function(req, res) {
-
 	var collection = db.get('stories');
 	var oid = collection.id(req.query.id);
-	console.log(req.query.id);
 	collection.findById(oid, function(err, doc){
 		if (err) throw err;
 		else {
@@ -49,27 +52,28 @@ var getByID = function(req, res) {
 var getRelated = function(req, res) {
 	var collection = db.get('stories');
 	var arr = [];
-	while (arr.length <= Math.min(8, stories_count)){
-		var rand = Math.floor(Math.random() * stories_count);
-		collection.find({tag: req.body.tag}, function(err, doc){
-			if (err) throw err;
-			else {
-				while (arr.length <= 8) {
-					var rand = Math.floor(Math.random() * stories_count);
-					arr.push(docs[rand]);
-				}
-				var result = {stories: arr};
-				res.send(result);		
+	
+	var rand = Math.floor(Math.random() * stories_count);
+	collection.find({tag: req.body.tag}, function(err, docs){
+		if (err) throw err;
+		else {
+			while (arr.length <= Math.min(8, docs.length) ){
+				var rand = Math.floor(Math.random() * docs.length);
+				arr.push(docs[rand]);
+				if (arr.length == docs.length) break;
 			}
-		})		
-	}
+			var result = {stories: arr};
+			console.log(result);
+			res.send(result);		
+		}
+	})		
 }
 
 var postStory = function(req, res) {
 	var story = {};
 	// story._id = uuid.v1();
 	story.title = req.body.title;
-	story.poster = req.body.fullname;
+	story.poster = req.body.poster;
 	story.content = req.body.content;
 	story.views = 0;
 	story.likes = 0;

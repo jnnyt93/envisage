@@ -5,18 +5,25 @@
 	height: 100%;
 	top: 0;
 	left: 0;
+
 	background: rgba(204,121,14,0.3);
+
+	font-family: 'Ledger', serif;
 }
+
 h1 {
+	font-family: 'Ledger', serif;
 	text-align: center;
-	font-size:40px;}
-p {
+	font-size:40px;
+}
+.overlay p {
+	padding-top: 4%;
+	padding-bottom: 4%;
+	font-family: 'Ledger', serif;
 	text-indent:50px;
 	font-size:15px;
-line-height:100%}
-
-
-
+	line-height:140%;
+}
 
 /* Overlay closing cross */
 .overlay .overlay-close {
@@ -40,7 +47,7 @@ line-height:100%}
 	position: relative;
 	top: 50%;
 	height: 75%;
-	width: 85%;
+	width: 90%;
 	margin-right:50px;
 	margin-left:50px;
 	overflow:auto;
@@ -48,7 +55,9 @@ line-height:100%}
 	transform: translateY(-50%);
 }
 
-
+.overlay nav div {
+	text-align: center;
+}
 
 .overlay ul {
 	list-style: none;
@@ -101,6 +110,7 @@ line-height:100%}
 	top: 0;
 	left: 0;
 }
+
 
 .overlay-boxes svg path {
 	fill: rgba(204,121,14,0.95);

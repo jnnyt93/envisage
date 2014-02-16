@@ -10,7 +10,7 @@
 
   <!-- CSS -->
   <link rel = "stylesheet" href = "css/tile.css"/>
-  <link href= 'http://fonts.googleapis.com/css?family = Ledger' rel = 'stylesheet' type'text/css'>        
+  <link href= 'http://fonts.googleapis.com/css?family=Ledger|Quando' rel='stylesheet' type'text/css'>        
 
   <link rel ="stylesheet" href = "css/foundation.css">      
 
@@ -26,7 +26,7 @@
   <script src ="js/foundation.js"></script>
   <script src ="js/foundation.reveal.js"></script>
   <script src ="js/jquery.autosize.js"></script>
-  <script src="js/utils.js"></script> 
+  <script src ="js/utils.js"></script> 
 
   <!-- Enable media queries for old IE -->
   <!--[if lt IE 9]>
@@ -35,8 +35,18 @@
   <script>
   $(document).foundation();
   $(document).ready(function(){
+    $('#story-form').submit(function(event){
+      postStory();
+    })
+    $('#story-form').click(function(event){
+      postStory();
+    })
+    $('#related-stories').click(function(event){
+      getRelatedStories();
+    })
     $('textarea').autosize();
-    drawBox();    
+    drawBox();
+    setTimeout(refresh, 30000);    
   }); 
 
   </script>
@@ -51,134 +61,123 @@
 
 </head>
 
-<body class="no-touch">
-
-  <a class = "button" href="#" data-reveal-id="submit-button" data-reveal>Share your story</a>
-
-  <div id="submit-button" class="reveal-modal" data-reveal>
-    <h2>Welcome to Envisage</h2>
-
-    <form>
-     <div class = "row">
-      <div class= "large-12 columns">
-       <label> Title
-         <input type ="text" placeholder = "Enter the title"/>
-       </label>
-      </div>
-    </div>
-   <div class = "row">
-     <div class = "large-12 columns">
-       <label> Story
-         <textarea placeholder = "Share your story"></textarea>
-       </label>
-     </div>
-   </div>
-
-   <div>
-     <div style: "display:flex" class = "row">
-       <div style: "float:left" class = large-4.columns>
-         <label> Input Label
-           <input type = "text" placeholder = "Enter one label"/>
-         </label>
-       </div>
-     </div>
-     
-     <div style: "float:right" class = large-4.columns>
-       <label> Input Name (Optional)
-         <input type = "text" placeholder = "Name"/>
-       </label>
-     </div>
-   </div>
-
-   <div class= "small-2 columns">
-   </div>
-
-   <div style:"text-align:center" class = submission>
-    <input type = "submit" class="button" value = "SUBMIT" />
-  </div>
-</div>
-</form>
-<a class="close-reveal-modal"></a>
-
-<body class="no-touch">
+<body style= 'background-color: #E6AC30'; class="no-touch">
 
   <div class = "header">
     <img src="img/Envisage_logo.png" alt="logo">
   </div>
 
-  <div class="wrap" >
-
-    <!-- Define all of the tiles: -->
+  <div class = "description">
+     <p style="margin-left: 20%; margin-right: 20%;"> This is an open forum for students to share their stories and experiences. We might come from different backgrounds, we might have different interests, and we will have different experiences. But at the end of the day, you are not alone.
+     </p>
     
-    
+ <div class="row" id = "center" style = ''>
+  <div id = "submission_button">
+  <a class = "button" href="#" data-reveal-id="submit-story" data-reveal>Share your story</a>
   </div>
-  <!-- /#wrap -->
-  
-  <!-- Add some JavaScript to enable toggling the descriptions when an image is tapped on a touchscreen device -->
+  <div id="submit-story" class="reveal-modal" data-reveal>
+    <h2>Welcome to Envisage</h2>
+    <a class ="close-reveal-modal">&#215;</a>
+    <form id="story-form">     
+    <div class = "row">      
+       <label> Title </label>
+       <input type ="text" name="title" placeholder = "Enter the title"required>      
+    </div>
+    <div class = "row">    
+       <label> Story</label>
+       <textarea name="content" placeholder = "Share your story" required></textarea>     
+    </div>
 
-  <script type="text/javascript">
-  $(function(){
-      // See if this is a touch device
-      if ('ontouchstart' in window)
-      {
-        // Set the correct body class
-        $('body').removeClass('no-touch').addClass('touch');
+      <div class = "row">
+        <div>
+             <label> Input Label </label>
+              <input name="tag" type = "text" placeholder = "Enter one label" required>
+        </div>
         
-        // Add the touch toggle to show text
-        $('div.boxInner img').click(function(){
-          $(this).closest('.boxInner').toggleClass('touchFocus');
-        });
-      }
-    });
-  </script>
-
- <!-- open/close -->
- <div class="overlay overlay-boxes">
-  <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="101%" viewBox="0 0 1440 806" preserveAspectRatio="none">
-    <path d="m0.005959,200.364029l207.551124,0l0,204.342453l-207.551124,0l0,-204.342453z"/>
-    <path d="m0.005959,400.45401l207.551124,0l0,204.342499l-207.551124,0l0,-204.342499z"/>
-    <path d="m0.005959,600.544067l207.551124,0l0,204.342468l-207.551124,0l0,-204.342468z"/>
-    <path d="m205.752151,-0.36l207.551163,0l0,204.342437l-207.551163,0l0,-204.342437z"/>
-    <path d="m204.744629,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z"/>
-    <path d="m204.744629,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z"/>
-    <path d="m204.744629,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z"/>
-    <path d="m410.416046,-0.36l207.551117,0l0,204.342437l-207.551117,0l0,-204.342437z"/>
-    <path d="m410.416046,200.364029l207.551117,0l0,204.342453l-207.551117,0l0,-204.342453z"/>
-    <path d="m410.416046,400.45401l207.551117,0l0,204.342499l-207.551117,0l0,-204.342499z"/>
-    <path d="m410.416046,600.544067l207.551117,0l0,204.342468l-207.551117,0l0,-204.342468z"/>
-    <path d="m616.087402,-0.36l207.551086,0l0,204.342437l-207.551086,0l0,-204.342437z"/>
-    <path d="m616.087402,200.364029l207.551086,0l0,204.342453l-207.551086,0l0,-204.342453z"/>
-    <path d="m616.087402,400.45401l207.551086,0l0,204.342499l-207.551086,0l0,-204.342499z"/>
-    <path d="m616.087402,600.544067l207.551086,0l0,204.342468l-207.551086,0l0,-204.342468z"/>
-    <path d="m821.748718,-0.36l207.550964,0l0,204.342437l-207.550964,0l0,-204.342437z"/>
-    <path d="m821.748718,200.364029l207.550964,0l0,204.342453l-207.550964,0l0,-204.342453z"/>
-    <path d="m821.748718,400.45401l207.550964,0l0,204.342499l-207.550964,0l0,-204.342499z"/>
-    <path d="m821.748718,600.544067l207.550964,0l0,204.342468l-207.550964,0l0,-204.342468z"/>
-    <path d="m1027.203979,-0.36l207.550903,0l0,204.342437l-207.550903,0l0,-204.342437z"/>
-    <path d="m1027.203979,200.364029l207.550903,0l0,204.342453l-207.550903,0l0,-204.342453z"/>
-    <path d="m1027.203979,400.45401l207.550903,0l0,204.342499l-207.550903,0l0,-204.342499z"/>
-    <path d="m1027.203979,600.544067l207.550903,0l0,204.342468l-207.550903,0l0,-204.342468z"/>
-    <path d="m1232.659302,-0.36l207.551147,0l0,204.342437l-207.551147,0l0,-204.342437z"/>
-    <path d="m1232.659302,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z"/>
-    <path d="m1232.659302,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z"/>
-    <path d="m1232.659302,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z"/>
-    <path d="m-0.791443,-0.360001l207.551163,0l0,204.342438l-207.551163,0l0,-204.342438z"/>
-  </svg>
-  <button type="button" class="overlay-close">Close</button>
-  
-  <nav>
-    <div id='story-modal'>
-    <h1 id="modal-title">This is the Title of My Story</h1>
-    <h3 id="modal-poster" style="font-style:italics">Anonymous </h3>
-    <p id='modal-content'> </p>
-
-
-          <button type="button">Similar Stories</button><br>
-        
+        <div> 
+           <label> Input Name (Optional)</label>
+           <input name="poster" type="text" placeholder = "Name">
+        </div>
       </div>
-  </nav>
-  </div>      
-      <script src="js/classie.js"></script>
-      <script src="js/demo10.js"></script>
+
+      <div style:"text-align:center" class = submission>
+        <input type = "submit" class="button" value = "SUBMIT">
+      </div>
+    </div>
+  </form>
+  <a class="close-reveal-modal"></a>
+</div> 
+
+
+    <div class="wrap" >
+    <!-- Define all of the tiles: -->   
+    </div>
+    <!-- /#wrap -->
+    
+    <!-- Add some JavaScript to enable toggling the descriptions when an image is tapped on a touchscreen device -->
+
+    <script type="text/javascript">
+    $(function(){
+        // See if this is a touch device
+        if ('ontouchstart' in window)
+        {
+          // Set the correct body class
+          $('body').removeClass('no-touch').addClass('touch');
+          
+          // Add the touch toggle to show text
+          $('div.boxInner img').click(function(){
+            $(this).closest('.boxInner').toggleClass('touchFocus');
+          });
+        }
+      });
+    </script>
+
+     <!-- open/close -->
+   <div class="overlay overlay-boxes">
+      <svg xmlns="http://www.w3.org/2000/svg" width="100%" height="101%" viewBox="0 0 1440 806" preserveAspectRatio="none">
+        <path d="m0.005959,200.364029l207.551124,0l0,204.342453l-207.551124,0l0,-204.342453z"/>
+        <path d="m0.005959,400.45401l207.551124,0l0,204.342499l-207.551124,0l0,-204.342499z"/>
+        <path d="m0.005959,600.544067l207.551124,0l0,204.342468l-207.551124,0l0,-204.342468z"/>
+        <path d="m205.752151,-0.36l207.551163,0l0,204.342437l-207.551163,0l0,-204.342437z"/>
+        <path d="m204.744629,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z"/>
+        <path d="m204.744629,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z"/>
+        <path d="m204.744629,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z"/>
+        <path d="m410.416046,-0.36l207.551117,0l0,204.342437l-207.551117,0l0,-204.342437z"/>
+        <path d="m410.416046,200.364029l207.551117,0l0,204.342453l-207.551117,0l0,-204.342453z"/>
+        <path d="m410.416046,400.45401l207.551117,0l0,204.342499l-207.551117,0l0,-204.342499z"/>
+        <path d="m410.416046,600.544067l207.551117,0l0,204.342468l-207.551117,0l0,-204.342468z"/>
+        <path d="m616.087402,-0.36l207.551086,0l0,204.342437l-207.551086,0l0,-204.342437z"/>
+        <path d="m616.087402,200.364029l207.551086,0l0,204.342453l-207.551086,0l0,-204.342453z"/>
+        <path d="m616.087402,400.45401l207.551086,0l0,204.342499l-207.551086,0l0,-204.342499z"/>
+        <path d="m616.087402,600.544067l207.551086,0l0,204.342468l-207.551086,0l0,-204.342468z"/>
+        <path d="m821.748718,-0.36l207.550964,0l0,204.342437l-207.550964,0l0,-204.342437z"/>
+        <path d="m821.748718,200.364029l207.550964,0l0,204.342453l-207.550964,0l0,-204.342453z"/>
+        <path d="m821.748718,400.45401l207.550964,0l0,204.342499l-207.550964,0l0,-204.342499z"/>
+        <path d="m821.748718,600.544067l207.550964,0l0,204.342468l-207.550964,0l0,-204.342468z"/>
+        <path d="m1027.203979,-0.36l207.550903,0l0,204.342437l-207.550903,0l0,-204.342437z"/>
+        <path d="m1027.203979,200.364029l207.550903,0l0,204.342453l-207.550903,0l0,-204.342453z"/>
+        <path d="m1027.203979,400.45401l207.550903,0l0,204.342499l-207.550903,0l0,-204.342499z"/>
+        <path d="m1027.203979,600.544067l207.550903,0l0,204.342468l-207.550903,0l0,-204.342468z"/>
+        <path d="m1232.659302,-0.36l207.551147,0l0,204.342437l-207.551147,0l0,-204.342437z"/>
+        <path d="m1232.659302,200.364029l207.551147,0l0,204.342453l-207.551147,0l0,-204.342453z"/>
+        <path d="m1232.659302,400.45401l207.551147,0l0,204.342499l-207.551147,0l0,-204.342499z"/>
+        <path d="m1232.659302,600.544067l207.551147,0l0,204.342468l-207.551147,0l0,-204.342468z"/>
+        <path d="m-0.791443,-0.360001l207.551163,0l0,204.342438l-207.551163,0l0,-204.342438z"/>
+      </svg>
+      <button type="button" class="overlay-close">Close</button>
+  
+      <nav>
+        <div id='story-modal'>
+          <h1 id="modal-title">This is the Title of My Story</h1>
+          <h3 id="modal-poster" style="font-style:italics">Anonymous </h3>
+          <p id="modal-content"> </p>
+          <button id="related-stories" type="button">Similar Stories</button><br>        
+        </div>
+      </nav>
+    </div> 
+
+    <script src="js/classie.js"></script>
+    <script src="js/demo10.js"></script>
+
   </body> 
 </html>

@@ -27,8 +27,10 @@ app.use(express.session({secret:'48112959837082048697'}));
 app.get('/', routes.get_main);
 app.get('/getstories',routes.get_stories);
 app.get('/getbyid',routes.get_byid);
+app.post('/poststory', routes.post_story);
+app.get('/getrelated', routes.get_related);
 
 
 /* Run the server */
 app.listen(3000);
-console.log('Server running on port 3000. Now open http://localhost:8080/ in your browser!');
+console.log('Server running on port 3000. Now open http://localhost:3000/ in your browser!');

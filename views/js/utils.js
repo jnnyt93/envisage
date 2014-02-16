@@ -1,11 +1,9 @@
 var drawBox = function() {
-
 	var url = "/getstories";
 	var stories = [];
 	$.get(url, function (data, status) {
 		if (status === 'success') {
 			var arr = data.stories;
-			current_stories = data.stories.slice(0);
 			$('.wrap').empty();
 			for (var i = 1; i <= arr.length; i++) {
 				if (arr[i] != undefined) {
@@ -52,10 +50,53 @@ var updateStoryModal = function(id) {
 				$('#modal-poster').append(poster);
 			}
 			else {
-				$$('#modal-poster').append("Anonymous");
+				$('#modal-poster').append("Anonymous");
 			}
 			$('#modal-content').empty();
 			$('#modal-content').append(content);
 		}
 	})	
 }
+
+var postStory = function(){
+  var url = '/poststory';
+  $.post(url, $("#story-form").serialize(), function(data, status){
+    if (status === 'succcess') {
+      // Maybe do something here?
+      console.log("success");
+      location.reload();
+    }
+  })
+}
+
+var getRelatedStories = function() {
+	// location.reload();
+	var url = '/getrelated';
+	$.get(url, function(data, status){
+		console.log(data);
+		if (data.stories[0] != null) {
+			var arr = data.stories;
+			$('.wrap').empty();
+			for (var i = 1; i <= arr.length; i++) {
+				if (arr[i] != undefined) {
+					var id = arr[i]._id.toString();
+					var title = arr[i].title;
+					var order = i;
+					var html = generateBoxHTML(id, title, order);
+					$('.wrap').append(html);
+				}				
+			}
+			initOverlay();
+		}
+		else {
+			alert('There no other stories of the same topic at the moment. You should contribute!');
+		}
+	})
+}
+
+var refresh = function() {
+	drawBox();
+	setTimeout(refresh, 30000);
+}
+
+

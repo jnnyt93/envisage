@@ -1,54 +1,103 @@
-
 .header {
-    text-align : center;
-    text-decoration: underline;
-    clear: both;
+  padding-top: 30px;
+  text-align : center;
+  clear: both;
 }
 
-.submission{
-     text-align: center;
+#two-columns {
+ width = 50%;
+ position: relative;
 }
- 
+
+.submission {
+ text-align: center;
+}
+
+#submit-story {
+  font-family: "Ledger", serif;  
+  font-style: none;
+}
+
+#submit-story h2 {
+  font-style: none;
+  font-family: "Ledger", serif;
+  font-color: rgb(94,58,17);
+}
+
+#submit-story .row {
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.row label {
+  margin-left: 20%;
+  float: left;
+  padding-top: 10px;
+  padding-right: 1%;
+}
+
+.row input[type="text"] {
+  width: 30%;
+  margin-left: 20%;
+}
+
+.row textarea {
+  width: 55%;
+  margin-left: 20%;
+  min-height: 40%;
+}
+
 body {
-      margin: 0;
-      padding: 0;
-      padding-left: 15%;
-      padding-right: 15%;
-      background: WHITE;
-      font: 14px/20px 'Lucida Sans',sans-serif;
-    }
-    .wrap {
-      overflow: hidden;
-      margin: 10px;
-    }
-    .box {
-      float: left;
-      position: relative;
-      width: 25%;
-      padding-bottom: 25%;
-    }
-    .boxInner {
-      position: absolute;
-      left: 10px;
-      right: 10px;
-      top: 10px;
-      bottom: 10px;
-      overflow: hidden;
-    }
-    .boxInner img {
-      width: 100%;
-    }
-    .boxInner .titleBox {
-      position: relative;
-      left: 0;
-      right: 0;
-      margin-top: -50px;
-      background: #000;
-      background: rgba(0, 0, 0, 0.5);
-      color: #FFF;
-      padding: 10px;
-      text-align: center;
-      -webkit-transition: all 0.4s ease-out;
+  height: 100%;
+  margin: 5%;
+  padding: 4px 4px 4px 4px;
+  background-color: #261C12;
+  font-family: "Ledger", serif;
+  font-size: 15px/20px;
+}
+
+#description, p {
+  font-size: 16px;
+  text-align: center;
+  color: white;
+}
+.row {
+  text-align: center;
+  padding-top: 1%;
+}
+
+.wrap {
+  overflow: hidden;
+  margin: 3%;
+}
+.box {
+  float: left;
+  position: relative;
+  width: 25%;
+  padding-bottom: 25%;
+}
+.boxInner {
+  position: absolute;
+  left: 10px;
+  right: 10px;
+  top: 10px;
+  bottom: 10px;
+  overflow: hidden;
+}
+.boxInner img {
+  width: 100%;
+}
+.boxInner .titleBox {
+  position: relative;
+  left: 0;
+  right: 0;
+  margin-top: -50px;
+  background: #000;
+  background: rgba(0, 0, 0, 0.5);
+  color: #FFF;
+  padding: 10px;
+  text-align: center;
+  -webkit-transition: all 0.4s ease-out;
      /* -moz-transition: all 0.4s ease-out;
       -o-transition: all 0.4s ease-out;
       transition: all 0.4s ease-out;*/
@@ -67,20 +116,20 @@ body {
       /* Tablet view: 2 tiles */
       .box {
         width: 50%;
-        padding-bottom: 50%;
+        padding-bottom: 60%;
       }
     }
     @media only screen and (max-width : 1050px) and (min-width : 651px) {
       /* Small desktop / ipad view: 3 tiles */
       .box {
         width: 33.3%;
-        padding-bottom: 33.3%;
+        padding-bottom: 43.3%;
       }
     }
     @media only screen and (max-width : 1290px) and (min-width : 1051px) {
       /* Medium desktop: 4 tiles */
       .box {
         width: 25%;
-        padding-bottom: 25%;
+        padding-bottom: 40%;
       }
     }
