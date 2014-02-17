@@ -77,9 +77,19 @@ var postStory = function(req, res) {
 	story.likes = 0;
 	story.tag = req.body.tag;
 
+	if (story.title == '' || story.title == undefined) {
+		res.send(504);
+	}
+	if (story.content == '' || story.content == undefined) {
+		res.send(504);
+	}
+	if (story.tag == '' || story.tag == undefined) {
+		res.send(504);
+	}
+
 	var collection = db.get('stories');
 	collection.insert(story, function(err, doc){
-		if (err) throw err;
+		if (err) res.send(504);
 		else res.send(200);
 	})
 }

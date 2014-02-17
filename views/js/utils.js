@@ -63,19 +63,22 @@ var updateStoryModal = function(id) {
 
 var postStory = function(){
   var url = '/poststory';
-  var data = $("#story-form").serialize();
-  if (data.title == "" || data.content == "") {
+  if (form.poster == "") form.poster = "Anonymous";
+  var form = $("#story-form").serialize();
+  if (form.title == "" || form.content == "") {
   	return;
   }
-  if (data.poster == "") data.poster = "Anonymous";
-  $.post(url, data, function(data, status){
-    if (status === 'succcess') {
-      // Maybe do something here?
-      console.log("success");
-      $("#story-form").reset();
-      location.reload();
-    }
-  })
+  else {  	
+	  $.post(url, form, function(data, status){
+	    if (status === 'succcess') {
+	      // Maybe do something here?
+	      console.log("success");
+	      $("#story-form").reset();
+	      location.reload();
+	    }
+	  })
+  }
+  
 }
 
 var getRelatedStories = function() {
