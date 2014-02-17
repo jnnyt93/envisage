@@ -6,7 +6,6 @@ var db = monk('localhost:5000/test');
  */
 
  var getMain = function(req, res) {
-	// If the user has previously logged in, attempts to go to
 	res.render('main.ejs');
 };
 
@@ -19,7 +18,7 @@ var getStories = function(req, res) {
 		else {
 		console.log("------Length: " +docs.length+" ---------");				
 			while (arr.length <= Math.min(docs.length,8)) {
-				var rand = Math.floor(Math.random() * docs_length);
+				var rand = Math.floor(Math.random() * docs.length);
 				var contains = false;
 				for (var i = 0; i < arr.length; i++) {						
 					if (arr[i]._id === docs[rand]._id) {
@@ -78,8 +77,6 @@ var postStory = function(req, res) {
 	story.likes = 0;
 	story.tag = req.body.tag;
 	story.index = stories_count;
-
-	stories_count++;
 
 	var collection = db.get('stories');
 	collection.insert(story, function(err, doc){
