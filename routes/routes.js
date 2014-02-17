@@ -1,6 +1,5 @@
 var monk = require('monk');
-var db = monk('localhost:27017/test');
-var stories_count = 37;
+var db = monk('localhost:5000/test');
 
 /*
  * Handler for the main home/login page.
@@ -18,10 +17,9 @@ var getStories = function(req, res) {
 	collection.find({}, function(err, docs){
 		if (err) throw err;
 		else {
-			stories_count = docs.length;
 		console.log("------Length: " +docs.length+" ---------");				
-			while (arr.length <= Math.min(stories_count,8)) {
-				var rand = Math.floor(Math.random() * stories_count);
+			while (arr.length <= Math.min(docs.length,8)) {
+				var rand = Math.floor(Math.random() * docs_length);
 				var contains = false;
 				for (var i = 0; i < arr.length; i++) {						
 					if (arr[i]._id === docs[rand]._id) {
