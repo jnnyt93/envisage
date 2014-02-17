@@ -1,5 +1,4 @@
 var monk = require('monk');
-var uuid = require('node-uuid');
 var db = monk('localhost:27017/test');
 var stories_count = 37;
 
