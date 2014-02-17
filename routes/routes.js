@@ -17,7 +17,7 @@ var getStories = function(req, res) {
 		if (err) throw err;
 		else {
 		console.log("------Length: " +docs.length+" ---------");				
-			while (arr.length <= Math.min(docs.length,8)) {
+			while (arr.length < Math.min(docs.length,8)) {
 				var rand = Math.floor(Math.random() * docs.length);
 				var contains = false;
 				for (var i = 0; i < arr.length; i++) {						
@@ -55,7 +55,7 @@ var getRelated = function(req, res) {
 	collection.find({tag: req.query.tag}, function(err, docs){
 		if (err) throw err;
 		else {
-			while (arr.length <= Math.min(8, docs.length) ){
+			while (arr.length < Math.min(8, docs.length) ){
 				var rand = Math.floor(Math.random() * docs.length);
 				arr.push(docs[rand]);
 				if (arr.length == docs.length) break;
@@ -76,7 +76,6 @@ var postStory = function(req, res) {
 	story.views = 0;
 	story.likes = 0;
 	story.tag = req.body.tag;
-	story.index = stories_count;
 
 	var collection = db.get('stories');
 	collection.insert(story, function(err, doc){

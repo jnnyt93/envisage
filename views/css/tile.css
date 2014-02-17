@@ -51,7 +51,7 @@ body {
   height: 100%;
   margin: 5%;
   padding: 4px 4px 4px 4px;
-  background-color: #261C12;
+  background-color: rgb(230, 172, 48);
   font-family: "Ledger", serif;
   font-size: 15px/20px;
 }

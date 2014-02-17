@@ -5,7 +5,7 @@ var drawBox = function() {
 		if (status === 'success') {
 			var arr = data.stories;
 			$('.wrap').empty();
-			for (var i = 1; i <= arr.length; i++) {
+			for (var i = 0; i < arr.length; i++) {
 				if (arr[i] != undefined) {
 					var id = arr[i]._id.toString();
 					var title = arr[i].title;
@@ -22,7 +22,7 @@ var drawBox = function() {
 var generateBoxHTML = function(id, title, order) {
 	var img = '/img/img';
 	var trigger = 'trigger-overlay';
-	
+	order += 1;
 	img += order + '.png';
 	trigger += order;
 
@@ -68,10 +68,11 @@ var postStory = function(){
   	return;
   }
   if (data.poster == "") data.poster = "Anonymous";
-  $.post(url, $("#story-form").serialize(), function(data, status){
+  $.post(url, data, function(data, status){
     if (status === 'succcess') {
       // Maybe do something here?
       console.log("success");
+      $("#story-form").reset();
       location.reload();
     }
   })
