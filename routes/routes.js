@@ -78,13 +78,13 @@ var postStory = function(req, res) {
 	story.tag = req.body.tag;
 
 	if (story.title == '' || story.title == undefined) {
-		res.send(504);
+		res.send(403);
 	}
 	if (story.content == '' || story.content == undefined) {
-		res.send(504);
+		res.send(403);
 	}
 	if (story.tag == '' || story.tag == undefined) {
-		res.send(504);
+		res.send(403);
 	}
 
 	var collection = db.get('stories');

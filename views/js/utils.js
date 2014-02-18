@@ -63,21 +63,17 @@ var updateStoryModal = function(id) {
 
 var postStory = function(){
   var url = '/poststory';
-  if (form.poster == "") form.poster = "Anonymous";
-  var form = $("#story-form").serialize();
-  if (form.title == "" || form.content == "") {
-  	return;
-  }
-  else {  	
-	  $.post(url, form, function(data, status){
+  clearTimeout(timer); 	
+	  $.post(url, $("#story-form").serialize(), function(data, status){
 	    if (status === 'succcess') {
 	      // Maybe do something here?
 	      console.log("success");
 	      $("#story-form").reset();
-	      location.reload();
+	      $('a.close-reveal-modal').trigger('click');
+	      location.replace('/');
 	    }
 	  })
-  }
+ 
   
 }
 
@@ -109,7 +105,7 @@ var getRelatedStories = function() {
 
 var refresh = function() {
 	drawBox();
-	setTimeout(refresh, 30000);
+	timer = setTimeout(refresh, 30000);
 }
 
 
