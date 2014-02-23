@@ -36,14 +36,16 @@
   $(document).foundation();
   $(document).ready(function(){
     $('#story-form').submit(function(event){
+      event.preventDefault();
       postStory();
+      $('a.close-reveal-modal').trigger('click');
     })
     $('#related-stories').click(function(event){
       getRelatedStories();
     })
     $('textarea').autosize();
     drawBox();
-    var timer = setTimeout(refresh, 30000);    
+    setTimeout(refresh, 30000);    
   }); 
 
   </script>

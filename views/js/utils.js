@@ -62,19 +62,15 @@ var updateStoryModal = function(id) {
 }
 
 var postStory = function(){
-  var url = '/poststory';
-  clearTimeout(timer); 	
+  var url = '/poststory';  	
 	  $.post(url, $("#story-form").serialize(), function(data, status){
 	    if (status === 'succcess') {
 	      // Maybe do something here?
 	      console.log("success");
-	      $("#story-form").reset();
 	      $('a.close-reveal-modal').trigger('click');
-	      location.replace('/');
+	      $("#story-form").reset();
 	    }
-	  })
- 
-  
+	  })  
 }
 
 var getRelatedStories = function() {
@@ -105,7 +101,7 @@ var getRelatedStories = function() {
 
 var refresh = function() {
 	drawBox();
-	timer = setTimeout(refresh, 30000);
+	setTimeout(refresh, 30000);
 }
 
 
